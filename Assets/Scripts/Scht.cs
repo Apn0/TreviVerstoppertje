@@ -37,8 +37,7 @@ public class Scht : NetworkBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.transform.tag == "otherPlayer") {
-					RpcDamage (hit.transform.gameObject);
-					//		Destroy(
+					CmdDamage (hit.transform.gameObject);
 				}
 			} else {
 				print ("I'm looking at nothing!");
@@ -46,8 +45,8 @@ public class Scht : NetworkBehaviour {
 
 	}
 
-	[RPC]
-	void RpcDamage(GameObject player) {
-		Destroy (player);
+	[Command]
+	void CmdDamage(GameObject player) {
+		Player.RpcKill(player)
 	}
 }
