@@ -4,8 +4,6 @@ using UnityEngine.Networking;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class NetworkPlayer : NetworkBehaviour {
-	[SerializeField]
-	Behaviour[] ComponentsToDisable;
 
 	GameObject sceneCam;
 

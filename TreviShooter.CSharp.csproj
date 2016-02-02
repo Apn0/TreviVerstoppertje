@@ -69,12 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CustomController.cs" />
-    <Compile Include="Assets\Editor 1\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\NetworkScript.cs" />
     <Compile Include="Assets\PlayerStats.cs" />
     <Compile Include="Assets\Scripts 1\AnimationApplier.cs" />
     <Compile Include="Assets\Scripts 1\Controller.cs" />
-    <Compile Include="Assets\Scripts 1\NetworkPlayer.cs" />
     <Compile Include="Assets\Scripts 1\Schoot.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\NetworkManager.cs" />
