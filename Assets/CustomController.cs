@@ -6,11 +6,15 @@ public class CustomController : MonoBehaviour {
     public float groundCheckDistance;
     public float abovestart;
 
-    private Vector3 relative;
+    public Vector3 relative;
     private Vector3 startpos;
     private Animator anim;
     private bool isGrounded;
     private CharacterController cc;
+
+    public Vector3 customvelocity;
+    Vector3 currentpos;
+    Vector3 lastpos;
 
     int llayerMask = 1 << 8;
 
@@ -19,6 +23,8 @@ public class CustomController : MonoBehaviour {
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         llayerMask = ~llayerMask;
+        currentpos = transform.position;
+        lastpos = currentpos;
     }
 	
 	// Update is called once per frame
@@ -26,7 +32,7 @@ public class CustomController : MonoBehaviour {
 
         relative = transform.InverseTransformDirection(cc.velocity);
         // Debug.Log(relative);
-
+                    //customvelocity;
 
         checkGrounded();
 
@@ -45,6 +51,10 @@ public class CustomController : MonoBehaviour {
 
             
     }
+    //void FixedUpdate()
+    //{
+    //    CalcCurrentPos();
+    //}
     void checkGrounded()
     {
         startpos = transform.position + new Vector3(0, abovestart, 0);
@@ -67,6 +77,15 @@ public class CustomController : MonoBehaviour {
             isGrounded = false;
         }
     }
+    //void CalcCurrentPos()
+    //{
+    //    currentpos = transform.position;
+    //    customvelocity = transform.InverseTransformDirection(currentpos - lastpos) / Time.deltaTime;
+    //    customvelocity.z = (customvelocity.z < 0.001f && customvelocity.z > -0.001f) ? 0: customvelocity.z ;
+    //    customvelocity.x = (customvelocity.x < 0.001f && customvelocity.x > -0.001f) ? 0: customvelocity.x ;
+    //    customvelocity.y = (customvelocity.y < 0.001f && customvelocity.y > -0.001f) ? 0: customvelocity.y ;
+    //    lastpos = currentpos;
+    //}
 
-    
+
 }
