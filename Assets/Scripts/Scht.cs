@@ -37,7 +37,8 @@ public class Scht : NetworkBehaviour {
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.transform.tag == "otherPlayer") {
-					CmdDamage (hit.transform.gameObject);
+					//CmdDamage (hit.transform.gameObject);
+					Debug.Log (hit.transform.name);
 				}
 			} else {
 				print ("I'm looking at nothing!");
