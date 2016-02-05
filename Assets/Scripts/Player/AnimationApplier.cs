@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class CustomController : NetworkBehaviour
+public class AnimationApplier : NetworkBehaviour
 {
 
     public float groundCheckDistance;
