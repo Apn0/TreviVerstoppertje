@@ -48,6 +48,6 @@ public class Scht : NetworkBehaviour {
 
 	[Command]
 	void CmdDamage(GameObject player) {
-        Player.RpcKill(player);
+		player.GetComponent<Player>().RpcKill();
 	}
 }
