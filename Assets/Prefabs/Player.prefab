@@ -2797,7 +2797,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2819,7 +2819,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!92 &9261510
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2984,6 +2984,7 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 11483590}
   - {fileID: 11438106}
+  playerGraphics: {fileID: 196378}
 --- !u!114 &11473336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3086,7 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0.033333335
+  m_SendInterval: 0.04761905
   m_SyncRotationAxis: 4
   m_RotationSyncCompression: 0
   m_SyncSpin: 0

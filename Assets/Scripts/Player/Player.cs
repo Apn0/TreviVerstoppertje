@@ -22,6 +22,9 @@ public class Player : NetworkBehaviour {
 	private Behaviour[] disableOnDeath;
 	private bool[] wasEnabled;
 
+    [SerializeField]
+    GameObject playerGraphics;
+
     public void Setup ()
     {
 		wasEnabled = new bool[disableOnDeath.Length];
@@ -73,7 +76,12 @@ public class Player : NetworkBehaviour {
 		if (_col != null)
 			_col.enabled = false;
 
-		Debug.Log(transform.name + " is DEAD!");
+        playerGraphics.SetActive(false);
+        
+
+
+
+        Debug.Log(transform.name + " is DEAD!");
 
 		StartCoroutine(Respawn());
 	}
@@ -82,12 +90,13 @@ public class Player : NetworkBehaviour {
 	{
 		yield return new WaitForSeconds(GameManager.instance.matchSettings.respawnTime);
 
-		SetDefaults();
+		
 		Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
 		transform.position = _spawnPoint.position;
 		transform.rotation = _spawnPoint.rotation;
+        SetDefaults();
 
-		Debug.Log(transform.name + " respawned.");
+        Debug.Log(transform.name + " respawned.");
 	}
 
     public void SetDefaults ()
@@ -104,6 +113,8 @@ public class Player : NetworkBehaviour {
 		Collider _col = GetComponent<Collider>();
 		if (_col != null)
 			_col.enabled = true;
+
+        playerGraphics.SetActive(true);
     }
 
 }
