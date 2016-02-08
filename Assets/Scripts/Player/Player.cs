@@ -25,6 +25,13 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     GameObject playerGraphics;
 
+    private UIManager uimanager;
+    void Start()
+    {
+        if(isLocalPlayer)
+        uimanager = GetComponent<UIManager>();
+    }
+
     public void Setup ()
     {
 		wasEnabled = new bool[disableOnDeath.Length];
@@ -56,6 +63,10 @@ public class Player : NetworkBehaviour {
         currentHealth -= _amount;
 
         Debug.Log(transform.name + " now has " + currentHealth + " health.");
+        if(isLocalPlayer)
+        {
+            uimanager.UpdatePlayerHealth(currentHealth);
+        }
 
 		if (currentHealth <= 0)
 		{
@@ -115,6 +126,8 @@ public class Player : NetworkBehaviour {
 			_col.enabled = true;
 
         playerGraphics.SetActive(true);
+        if(isLocalPlayer)
+        uimanager.UpdatePlayerHealth(currentHealth);
     }
 
 }

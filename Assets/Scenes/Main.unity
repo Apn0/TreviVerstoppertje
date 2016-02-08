@@ -816,24 +816,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 192534, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490054, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-      propertyPath: m_SendInterval
-      value: 0.04761905
-      objectReference: {fileID: 0}
-    - target: {fileID: 8292758, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8292758, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440924, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-      propertyPath: playerGraphics
-      value: 
-      objectReference: {fileID: 1777725664}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
   m_IsPrefabParent: 0
@@ -973,7 +957,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1777725664 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 196378, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-  m_PrefabInternal: {fileID: 1246345846}

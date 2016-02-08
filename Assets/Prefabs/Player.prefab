@@ -1180,6 +1180,7 @@ GameObject:
   - 114: {fileID: 11478986}
   - 114: {fileID: 11440924}
   - 114: {fileID: 11483590}
+  - 114: {fileID: 11447398}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2985,6 +2986,18 @@ MonoBehaviour:
   - {fileID: 11483590}
   - {fileID: 11438106}
   playerGraphics: {fileID: 196378}
+--- !u!114 &11447398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb31aa0984556f488b439ca55e71bbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpbar: {fileID: 0}
 --- !u!114 &11473336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3052,6 +3065,7 @@ MonoBehaviour:
   - {fileID: 11483590}
   - {fileID: 2041828}
   - {fileID: 8168374}
+  - {fileID: 11447398}
   remoteLayerName: RemotePlayer
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 196378}
