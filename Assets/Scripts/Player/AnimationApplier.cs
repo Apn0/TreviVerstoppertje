@@ -8,6 +8,11 @@ public class AnimationApplier : NetworkBehaviour
     public float groundCheckDistance;
     public float abovestart;
 
+    public Transform myCamera;
+    public Transform headBone;
+
+    public Vector3 headBoneRot;
+
     private Vector3 relative;
     private Vector3 startpos;
     private Animator anim;
@@ -45,6 +50,19 @@ public class AnimationApplier : NetworkBehaviour
             anim.SetBool("Grounded", false);
         }
         anim.SetFloat("yspeed", relative.y);
+
+
+    }
+    void LateUpdate()
+    {
+        headBoneRot = new Vector3(myCamera.localEulerAngles.x, headBone.localEulerAngles.y, headBone.localEulerAngles.z);
+        headBone.localEulerAngles = headBoneRot;
+
+        //1. verander waarde heupen. 
+
+        //2. verander waarde hoofd.
+
+        //3. verander waarde armen.
 
 
     }
