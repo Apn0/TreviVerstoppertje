@@ -8,10 +8,14 @@ public class AnimationApplier : NetworkBehaviour
     public float groundCheckDistance;
     public float abovestart;
 
-    public Transform myCamera;
-    public Transform headBone;
+    private Transform myCamera;
+    private Transform neck;
+    private Transform spine;
+    private Transform leftArm;
+    private Transform rightArm;
 
     public Vector3 headBoneRot;
+    public float myXpos;
 
     private Vector3 relative;
     private Vector3 startpos;
@@ -27,6 +31,15 @@ public class AnimationApplier : NetworkBehaviour
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         llayerMask = ~llayerMask;
+
+        spine = transform.Find("Graphics/Hips/Spine");
+        neck = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/Neck");
+       // leftArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/LeftShoulder");
+       // rightArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/RightShoulder");
+
+        leftArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm");
+        rightArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm");
+        myCamera = transform.Find("Camera");
     }
 
 
@@ -55,10 +68,23 @@ public class AnimationApplier : NetworkBehaviour
     }
     void LateUpdate()
     {
-        headBoneRot = new Vector3(myCamera.localEulerAngles.x, headBone.localEulerAngles.y, headBone.localEulerAngles.z);
-        headBone.localEulerAngles = headBoneRot;
+        if (myCamera.localEulerAngles.x > 180)
+        {
+            myXpos = myCamera.localEulerAngles.x - 360;
+        }
+        else
+        {
+            myXpos = myCamera.localEulerAngles.x;
+        }
+        spine.localEulerAngles += new Vector3(myXpos * .25f, 0, 0);
+        neck.localEulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
+
+        leftArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
+        rightArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
 
         //1. verander waarde heupen. 
+        //Crouch 17 graden.
+
 
         //2. verander waarde hoofd.
 
