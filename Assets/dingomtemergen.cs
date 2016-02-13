@@ -10,6 +10,6 @@ public class dingomtemergen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	//HAHA!
 	}
 }
