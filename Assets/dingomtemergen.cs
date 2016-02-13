@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//mergetest
+using UnityEngine;
 using System.Collections;
 
 public class dingomtemergen : MonoBehaviour {
