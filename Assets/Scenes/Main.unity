@@ -124,33 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: -1050975500, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &166246067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 166246068}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &166246068
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 166246067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.351, y: 0.192, z: 0.128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1195436124}
-  m_RootOrder: 0
 --- !u!1 &204039272
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,10 +775,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!4 &1195436124 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 464852, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-  m_PrefabInternal: {fileID: 1377816941}
 --- !u!1 &1371956154
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +836,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!1001 &1377816941
+--- !u!1001 &1545732474
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -906,10 +875,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11429438, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
-      propertyPath: elbowTarget
-      value: 
-      objectReference: {fileID: 166246068}
+    - target: {fileID: 9584836, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
   m_IsPrefabParent: 0
