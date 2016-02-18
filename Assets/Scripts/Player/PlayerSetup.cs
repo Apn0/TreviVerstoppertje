@@ -22,7 +22,10 @@ public class PlayerSetup : NetworkBehaviour {
 
 	[SerializeField]
 	GameObject playerUIPrefab;
-	private GameObject playerUIInstance;
+
+	public GameObject playerUIInstance;
+
+    public 
 
 	Camera sceneCamera;
 
@@ -49,7 +52,7 @@ public class PlayerSetup : NetworkBehaviour {
 
 			// Create PlayerUI
 			playerUIInstance = Instantiate(playerUIPrefab);
-			playerUIInstance.name = playerUIPrefab.name;
+            playerUIInstance.name = playerUIPrefab.name;
 
 		}
 

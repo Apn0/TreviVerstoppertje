@@ -7,11 +7,13 @@ public class UIManager : MonoBehaviour {
     private Slider hpbar;
     private int playerhp;
 	// Update is called once per frame
-	void Start () {
-        hpbar = GameObject.Find("PlayerUI").GetComponentInChildren<Slider>();
-    }
+
     public void UpdatePlayerHealth (int hp)
     {
+        if (hpbar == null)
+        {
+            hpbar = GetComponent<PlayerSetup>().playerUIInstance.GetComponentInChildren<Slider>();
+        }
         hpbar.value = hp;
     }
 }

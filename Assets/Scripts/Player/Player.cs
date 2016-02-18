@@ -43,16 +43,16 @@ public class Player : NetworkBehaviour {
         SetDefaults();
     }
 
-	//void Update ()
-	//{
-	//	if (!isLocalPlayer)
-	//		return;
+	void Update ()
+	{
+		if (!isLocalPlayer)
+			return;
 
-	//	if (Input.GetKeyDown(KeyCode.K))
-	//	{
-	//		RpcTakeDamage(99999);
-	//	}
-	//}
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			RpcTakeDamage(99999);
+		}
+	}
 
 	[ClientRpc]
     public void RpcTakeDamage (int _amount)
@@ -63,7 +63,7 @@ public class Player : NetworkBehaviour {
         currentHealth -= _amount;
 
         Debug.Log(transform.name + " now has " + currentHealth + " health.");
-        if(isLocalPlayer)
+        if(isLocalPlayer && uimanager != null)
         {
             uimanager.UpdatePlayerHealth(currentHealth);
         }
@@ -126,8 +126,10 @@ public class Player : NetworkBehaviour {
 			_col.enabled = true;
 
         playerGraphics.SetActive(true);
-        if(isLocalPlayer)
-        uimanager.UpdatePlayerHealth(currentHealth);
+        if (isLocalPlayer && uimanager != null)
+        {
+            uimanager.UpdatePlayerHealth(currentHealth);
+        }
     }
 
 }
