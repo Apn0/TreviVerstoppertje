@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour {
+public class HUDManager : MonoBehaviour {
 
     private Slider hpbar;
     private int playerhp;
