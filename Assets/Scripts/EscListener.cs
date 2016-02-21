@@ -12,7 +12,7 @@ public class EscListener : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("escape")) {
-			if(guiCanvas.active){
+			if(guiCanvas.activeSelf){
 				guiCanvas.SetActive (false);
 			}else{
 				guiCanvas.SetActive(true);

@@ -1238,6 +1238,14 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11490054, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+      propertyPath: m_TransformSyncMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490054, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+      propertyPath: m_SendInterval
+      value: 0.04761905
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
   m_IsPrefabParent: 0
