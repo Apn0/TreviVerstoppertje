@@ -25,11 +25,11 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     GameObject playerGraphics;
 
-    private UIManager uimanager;
+    private HUDManager uimanager;
     void Start()
     {
         if(isLocalPlayer)
-        uimanager = GetComponent<UIManager>();
+        uimanager = GetComponent<HUDManager>();
     }
 
     public void Setup ()
