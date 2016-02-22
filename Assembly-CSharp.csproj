@@ -45,17 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\EscListener.cs" />
      <Compile Include="Assets\IK\Scripts\ik\IKLimb_BrunoFerreira.cs" />
+     <Compile Include="Assets\Scripts\EscListener.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\HUDManager.cs" />
      <Compile Include="Assets\Scripts\MatchSettings.cs" />
+     <Compile Include="Assets\Scripts\NetworkManager_Custom.cs" />
      <Compile Include="Assets\Scripts\Player\AnimationApplier.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerSetup.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerWeapon.cs" />
-     <Compile Include="Assets\UIManager.cs" />
-     <Compile Include="Assets\dingomtemergen.cs" />
      <None Include="Assets\IK\Readme.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
