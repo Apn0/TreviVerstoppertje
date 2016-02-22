@@ -13,7 +13,9 @@ public class NetworkManager_Custom : NetworkManager {
 
     public void JoinGame() {
         if (!NetworkClient.active && !NetworkServer.active) {
-            SetIPAddress(); SetPort(); NetworkManager.singleton.StartClient();
+            SetIPAddress();
+            SetPort();
+            NetworkManager.singleton.StartClient();
         }
 
     }
@@ -25,6 +27,7 @@ public class NetworkManager_Custom : NetworkManager {
     void SetIPAddress()
     {
         string ipAddress = GameObject.Find("IPInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        singleton.networkAddress = ipAddress;
     }
 
     void OnLevelWasLoaded(int level)
