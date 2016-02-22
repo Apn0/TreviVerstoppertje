@@ -50,12 +50,12 @@ public class Player : NetworkBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.K))
 		{
-			RpcTakeDamage(99999);
+			RpcTakeDamage(99999, "The game");
 		}
 	}
 
 	[ClientRpc]
-    public void RpcTakeDamage (int _amount)
+    public void RpcTakeDamage (int _amount, string shooterName)
     {
 		if (isDead)
 			return;
@@ -70,11 +70,11 @@ public class Player : NetworkBehaviour {
 
 		if (currentHealth <= 0)
 		{
-			Die();
+			Die(shooterName);
 		}
     }
 
-	private void Die()
+	private void Die(string killerName)
 	{
 		isDead = true;
 
@@ -88,11 +88,8 @@ public class Player : NetworkBehaviour {
 			_col.enabled = false;
 
         playerGraphics.SetActive(false);
-        
 
-
-
-        Debug.Log(transform.name + " is DEAD!");
+        Debug.Log(killerName + " killed " + transform.name);
 
 		StartCoroutine(Respawn());
 	}
