@@ -31,9 +31,10 @@ public class PlayerSetup : NetworkBehaviour {
 
 	void Start ()
 	{
-		// Disable components that should only be
-		// active on the player that we control
-		if (!isLocalPlayer)
+        Cursor.visible = false;
+        // Disable components that should only be
+        // active on the player that we control
+        if (!isLocalPlayer)
 		{
 			DisableComponents();
 			AssignRemoteLayer();

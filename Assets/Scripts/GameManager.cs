@@ -7,6 +7,23 @@ public class GameManager : MonoBehaviour {
 
 	public MatchSettings matchSettings;
 
+    //private GameObject[] playerss;
+    public static GameObject localplayer;
+
+    void Start()
+    {
+        //playerss = GameObject.FindGameObjectsWithTag("Players");
+        
+    }
+
+    public static void Test()
+    {
+        foreach (KeyValuePair<string, Player> kvp in players)
+        {
+            Debug.Log(kvp.Key + ", " + kvp.Value.transform.name);
+        }
+    }
+
 	void Awake ()
 	{
 		if (instance != null)

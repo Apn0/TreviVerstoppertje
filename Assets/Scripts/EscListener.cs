@@ -3,9 +3,10 @@ using System.Collections;
 
 public class EscListener : MonoBehaviour {
 	GameObject guiCanvas;
+    
 	// Use this for initialization
 	void Start () {
-		guiCanvas = GameObject.Find ("Canvas");
+        guiCanvas = GameObject.Find("GUICanvas");
 		guiCanvas.SetActive (false);
 	}
 	
@@ -14,8 +15,11 @@ public class EscListener : MonoBehaviour {
 		if (Input.GetKeyDown ("escape")) {
 			if(guiCanvas.activeSelf){
 				guiCanvas.SetActive (false);
+                Cursor.visible = false;
+                GameManager.Test();
 			}else{
 				guiCanvas.SetActive(true);
+                Cursor.visible = true;
 			}
 		}
 	}

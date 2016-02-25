@@ -1114,7 +1114,7 @@ GameObject:
   - 114: {fileID: 1425850590}
   - 114: {fileID: 1425850589}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

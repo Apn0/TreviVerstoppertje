@@ -46,7 +46,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-/[Ll]ibrary/
+#/[Ll]ibrary/
+Library/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
