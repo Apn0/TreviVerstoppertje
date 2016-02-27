@@ -1234,6 +1234,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11483590, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+      propertyPath: weapon.roundspersecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483590, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+      propertyPath: weapon.guncooldown
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11432330, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}

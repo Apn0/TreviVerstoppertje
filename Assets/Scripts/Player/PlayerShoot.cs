@@ -13,6 +13,9 @@ public class PlayerShoot : NetworkBehaviour {
 	[SerializeField]
 	private LayerMask mask;
 
+    private float t = 0f;
+
+
 	void Start ()
 	{
 		if (cam == null)
@@ -24,10 +27,14 @@ public class PlayerShoot : NetworkBehaviour {
 
 	void Update ()
 	{
-		if (Input.GetButtonDown("Fire1"))
+        t += Time.deltaTime;
+		if (Input.GetButton("Fire1") && weapon.guncooldown < t )
 		{
 			Shoot();
+            t = 0;
 		}
+
+        
 	}
 
 	[Client]
