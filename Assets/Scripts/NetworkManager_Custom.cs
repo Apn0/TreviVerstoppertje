@@ -5,15 +5,24 @@ using UnityEngine.UI;
 
 public class NetworkManager_Custom : NetworkManager {
 
+    public string playerName;
+    public string ipAdress;
+
     public void StartupHost() {
         if (!NetworkClient.active && !NetworkServer.active) {
-            SetPort(); NetworkManager.singleton.StartHost();
+            SetPort();
+            SetName();
+            NetworkManager.singleton.StartHost();
         }
     }
 
     public void JoinGame() {
         if (!NetworkClient.active && !NetworkServer.active) {
-            SetIPAddress(); SetPort(); NetworkManager.singleton.StartClient();
+            SetIPAddress();
+            SetName();
+            SetPort();
+            NetworkManager.singleton.StartClient();
+            
         }
 
     }
@@ -25,6 +34,13 @@ public class NetworkManager_Custom : NetworkManager {
     void SetIPAddress()
     {
         string ipAddress = GameObject.Find("IPInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        NetworkManager.singleton.networkAddress = ipAddress;
+    }
+    void SetName()
+    {
+        string playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        Debug.Log(playerName);
+        CarryMeOver._playerName = playerName;
     }
 
     void OnLevelWasLoaded(int level)

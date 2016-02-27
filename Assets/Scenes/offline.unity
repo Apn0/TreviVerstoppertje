@@ -878,7 +878,7 @@ GameObject:
   - 114: {fileID: 1492924291}
   - 114: {fileID: 1492924290}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: NameInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1604,6 +1604,8 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
+  playerName: 
+  ipAdress: 
 --- !u!114 &1977136357
 MonoBehaviour:
   m_ObjectHideFlags: 0

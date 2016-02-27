@@ -25,12 +25,13 @@ public class PlayerSetup : NetworkBehaviour {
 
 	public GameObject playerUIInstance;
 
-    public 
-
-	Camera sceneCamera;
+    public Camera sceneCamera;
 
 	void Start ()
 	{
+ 
+        transform.name = CarryMeOver._playerName;
+        SetNetworkName();
         Cursor.visible = false;
         // Disable components that should only be
         // active on the player that we control
@@ -69,6 +70,11 @@ public class PlayerSetup : NetworkBehaviour {
 			SetLayerRecursively(child.gameObject, newLayer);
 		}
 	}
+
+    void SetNetworkName()
+    {
+
+    }
 
     public override void OnStartClient()
     {

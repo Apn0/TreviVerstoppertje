@@ -16,7 +16,6 @@ public class EscListener : MonoBehaviour {
 			if(guiCanvas.activeSelf){
 				guiCanvas.SetActive (false);
                 Cursor.visible = false;
-                GameManager.Test();
 			}else{
 				guiCanvas.SetActive(true);
                 Cursor.visible = true;
