@@ -23,14 +23,15 @@ public class PlayerSetup : NetworkBehaviour {
 	[SerializeField]
 	GameObject playerUIPrefab;
 
-	public GameObject playerUIInstance;
+	public
+        GameObject playerUIInstance;
 
-    public Camera sceneCamera;
+    private Camera sceneCamera;
 
 	void Start ()
 	{
  
-        transform.name = CarryMeOver._playerName;
+       // transform.name = CarryMeOver._playerName;
         SetNetworkName();
         Cursor.visible = false;
         // Disable components that should only be
