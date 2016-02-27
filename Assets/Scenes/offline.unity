@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_UseWebSockets: 0
   m_UseSimulator: 0
   m_SimulatedLatency: 1
-  m_PacketLossPercentage: 0
+  m_PacketLossPercentage: 8.6
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   isNetworkActive: 0
