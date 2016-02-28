@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameObject localplayer;
 
+    private List<Player> playerList;
+
     void Start()
     {
         
@@ -45,6 +47,15 @@ public class GameManager : MonoBehaviour {
     public static Player GetPlayer (string _playerID)
     {
         return players[_playerID];
+    }
+
+    public static Dictionary<string, Player> GetPlayers()
+    {
+        foreach(KeyValuePair<string, Player> kvp in players)
+        {
+
+        }
+        return players;
     }
 
 	//void OnGUI ()

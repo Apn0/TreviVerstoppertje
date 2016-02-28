@@ -37,16 +37,12 @@ public class NetworkManager_Custom : NetworkManager {
 
     void SetName()
     {
-        //string playerName = PlayerPrefs.GetString("username");
-        if (playerName == null) {
-            playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
-        }
-        if (playerName == "")
-        {
-            playerName = GameObject.Find("NameInputField").transform.FindChild("Placeholder").GetComponent<Text>().text;
+        playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        if (playerName == "") {
+            playerName = PlayerPrefs.GetString("username");
+            Debug.Log(playerName);
         }
 
-        Debug.Log(playerName);
         PlayerPrefs.SetString("username", playerName);
     }
 

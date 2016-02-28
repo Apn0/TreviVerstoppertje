@@ -23,14 +23,13 @@ public class PlayerSetup : NetworkBehaviour {
 	[SerializeField]
 	GameObject playerUIPrefab;
 
-	public
-        GameObject playerUIInstance;
+	public GameObject playerUIInstance;
 
     private Camera sceneCamera;
 
 	void Start ()
 	{
-        Debug.Log(PlayerPrefs.GetString("username"));
+        //Debug.Log(PlayerPrefs.GetString("username"));
         transform.name = PlayerPrefs.GetString("username");
         Cursor.visible = false;
 
