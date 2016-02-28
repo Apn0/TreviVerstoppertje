@@ -7,12 +7,10 @@ public class GameManager : MonoBehaviour {
 
 	public MatchSettings matchSettings;
 
-    //private GameObject[] playerss;
     public static GameObject localplayer;
 
     void Start()
     {
-        //playerss = GameObject.FindGameObjectsWithTag("Players");
         
     }
 
@@ -37,7 +35,6 @@ public class GameManager : MonoBehaviour {
     {
         string _playerID = PLAYER_ID_PREFIX + _netID;
         players.Add(_playerID, _player);
-        _player.transform.name = _playerID;
     }
 
     public static void UnRegisterPlayer (string _playerID)

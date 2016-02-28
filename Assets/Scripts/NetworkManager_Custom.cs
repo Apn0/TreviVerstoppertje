@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class NetworkManager_Custom : NetworkManager {
 
     public string playerName;
-    public string ipAdress;
 
     public void StartupHost() {
         if (!NetworkClient.active && !NetworkServer.active) {
@@ -33,14 +32,22 @@ public class NetworkManager_Custom : NetworkManager {
 
     void SetIPAddress()
     {
-        string ipAddress = GameObject.Find("IPInputField").transform.FindChild("Text").GetComponent<Text>().text;
-        NetworkManager.singleton.networkAddress = ipAddress;
+        NetworkManager.singleton.networkAddress = GameObject.Find("IPInputField").transform.FindChild("Text").GetComponent<Text>().text;
     }
+
     void SetName()
     {
-        string playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        //string playerName = PlayerPrefs.GetString("username");
+        if (playerName == null) {
+            playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        }
+        if (playerName == "")
+        {
+            playerName = GameObject.Find("NameInputField").transform.FindChild("Placeholder").GetComponent<Text>().text;
+        }
+
         Debug.Log(playerName);
-        CarryMeOver._playerName = playerName;
+        PlayerPrefs.SetString("username", playerName);
     }
 
     void OnLevelWasLoaded(int level)
@@ -63,7 +70,12 @@ public class NetworkManager_Custom : NetworkManager {
 
         GameObject.Find("ConnectButton").GetComponent<Button>().onClick.RemoveAllListeners();
         GameObject.Find("ConnectButton").GetComponent<Button>().onClick.AddListener(JoinGame);
-        Debug.Log("level0buttons");
+
+        playerName = PlayerPrefs.GetString("username");
+        if (playerName != null)
+        {
+            GameObject.Find("NameInputField").transform.FindChild("Placeholder").GetComponent<Text>().text = playerName;
+        }
     }
 
     void SetupOtherSceneButtons()

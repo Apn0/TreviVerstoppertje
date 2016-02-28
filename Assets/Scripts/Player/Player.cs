@@ -34,7 +34,7 @@ public class Player : NetworkBehaviour {
 
     public void Setup ()
     {
-		wasEnabled = new bool[disableOnDeath.Length];
+        wasEnabled = new bool[disableOnDeath.Length];
 		for (int i = 0; i < wasEnabled.Length; i++)
 		{
 			wasEnabled[i] = disableOnDeath[i].enabled;

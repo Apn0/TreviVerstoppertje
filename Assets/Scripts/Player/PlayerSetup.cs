@@ -30,10 +30,10 @@ public class PlayerSetup : NetworkBehaviour {
 
 	void Start ()
 	{
- 
-       // transform.name = CarryMeOver._playerName;
-        SetNetworkName();
+        Debug.Log(PlayerPrefs.GetString("username"));
+        transform.name = PlayerPrefs.GetString("username");
         Cursor.visible = false;
+
         // Disable components that should only be
         // active on the player that we control
         if (!isLocalPlayer)
@@ -72,10 +72,10 @@ public class PlayerSetup : NetworkBehaviour {
 		}
 	}
 
-    void SetNetworkName()
+    /*void SetNetworkName()
     {
 
-    }
+    }*/
 
     public override void OnStartClient()
     {
@@ -83,7 +83,6 @@ public class PlayerSetup : NetworkBehaviour {
 
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
-
         GameManager.RegisterPlayer(_netID, _player);
     }
 
