@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
     {
         string _playerID = PLAYER_ID_PREFIX + _netID;
         players.Add(_playerID, _player);
+        _player.transform.name = _playerID;
     }
 
     public static void UnRegisterPlayer (string _playerID)
@@ -51,10 +52,10 @@ public class GameManager : MonoBehaviour {
 
     public static Dictionary<string, Player> GetPlayers()
     {
-        foreach(KeyValuePair<string, Player> kvp in players)
+        /*foreach(KeyValuePair<string, Player> kvp in players)
         {
 
-        }
+        }*/
         return players;
     }
 

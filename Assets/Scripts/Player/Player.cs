@@ -25,6 +25,8 @@ public class Player : NetworkBehaviour {
     [SerializeField]
     GameObject playerGraphics;
 
+    public string playerName;
+
     private HUDManager uimanager;
     void Start()
     {
@@ -89,7 +91,7 @@ public class Player : NetworkBehaviour {
 
         playerGraphics.SetActive(false);
 
-        Debug.Log(killerName + " killed " + transform.name);
+        Debug.Log(killerName + " killed " + playerName);
 
 		StartCoroutine(Respawn());
 	}

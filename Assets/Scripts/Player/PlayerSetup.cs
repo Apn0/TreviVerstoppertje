@@ -29,8 +29,6 @@ public class PlayerSetup : NetworkBehaviour {
 
 	void Start ()
 	{
-        //Debug.Log(PlayerPrefs.GetString("username"));
-        transform.name = PlayerPrefs.GetString("username");
         Cursor.visible = false;
 
         // Disable components that should only be
@@ -71,17 +69,13 @@ public class PlayerSetup : NetworkBehaviour {
 		}
 	}
 
-    /*void SetNetworkName()
-    {
-
-    }*/
-
     public override void OnStartClient()
     {
         base.OnStartClient();
 
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
+        _player.playerName = PlayerPrefs.GetString("username");
         GameManager.RegisterPlayer(_netID, _player);
     }
 
