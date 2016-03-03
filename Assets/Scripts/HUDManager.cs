@@ -6,8 +6,17 @@ public class HUDManager : MonoBehaviour {
 
     private Slider hpbar;
     private int playerhp;
+    [SerializeField]
     private Camera cam;
+    private Player player;
+    private GUIStyle GUIStyle;
 	// Update is called once per frame
+
+    void Start()
+    {
+        GUIStyle = new GUIStyle();
+        GUIStyle.alignment = TextAnchor.MiddleCenter;
+    }
 
     public void UpdatePlayerHealth (int hp)
     {
@@ -18,18 +27,17 @@ public class HUDManager : MonoBehaviour {
         hpbar.value = hp;
     }
 
-    void onGui()
+    void OnGUI()
     {
+        cam = Camera.current;
         foreach (System.Collections.Generic.KeyValuePair<string, Player> kvp in GameManager.GetPlayers())
         {
-            cam = kvp.Value.GetComponentInChildren<Camera>();
-            GUI.color = Color.green;
-            Vector3 pos = cam.WorldToViewportPoint(kvp.Value.transform.position);
-            Vector3 pos1 = kvp.Value.transform.position = cam.transform.position;
-            if(Vector3.Dot(cam.transform.forward, pos1) > 0)
-            {
-                GUI.Label(new Rect(pos.x, (Screen.height - pos.y) - pos.z / cam.fieldOfView, 155, 155), kvp.Value.transform.name);
-            }
+            player = kvp.Value;
+            GUI.color = Color.red;
+
+            Vector3 pos = cam.WorldToViewportPoint(player.transform.position + new Vector3(0, 2.5f, 0));
+            GUI.Label(new Rect(Screen.width*pos.x-75, Screen.height*(1-pos.y), 150, 20), player.GetComponent<Player>().playerName, GUIStyle);
+
             GUI.color = Color.black;
         }
     }
