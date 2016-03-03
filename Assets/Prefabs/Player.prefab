@@ -3120,6 +3120,7 @@ MonoBehaviour:
   - {fileID: 11483590}
   - {fileID: 11438106}
   playerGraphics: {fileID: 196378}
+  playerName: 
 --- !u!114 &11447398
 MonoBehaviour:
   m_ObjectHideFlags: 1
