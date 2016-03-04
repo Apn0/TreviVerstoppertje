@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb31aa0984556f488b439ca55e71bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpbar: {fileID: 0}
+  tagSkin: {fileID: 11400000, guid: a9ff8dec2c7dbde40b161d1bb7b4152e, type: 2}
 --- !u!114 &11483808
 MonoBehaviour:
   m_ObjectHideFlags: 1

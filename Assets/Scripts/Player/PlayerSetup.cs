@@ -27,6 +27,8 @@ public class PlayerSetup : NetworkBehaviour {
 
     private Camera sceneCamera;
 
+    public static GameObject localPlayer;
+
 	void Start ()
 	{
         Cursor.visible = false;
@@ -53,6 +55,8 @@ public class PlayerSetup : NetworkBehaviour {
 			// Create PlayerUI
 			playerUIInstance = Instantiate(playerUIPrefab);
             playerUIInstance.name = playerUIPrefab.name;
+
+            localPlayer = gameObject;
 
 		}
 
@@ -88,7 +92,8 @@ public class PlayerSetup : NetworkBehaviour {
 	{
 		for (int i = 0; i < componentsToDisable.Length; i++)
 		{
-			componentsToDisable[i].enabled = false;
+            //Debug.Log(componentsToDisable[i]);
+            componentsToDisable[i].enabled = false;
 		}
 	}
 

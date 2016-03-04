@@ -50,10 +50,10 @@ public class GameManager : MonoBehaviour {
         return players[_playerID];
     }
 
-    public static Player getLocalPlayer()
-    {
-        return localplayer;
-    }
+    //public static Player getLocalPlayer()
+    //{
+    //    return localplayer;
+    //}
 
     public static Dictionary<string, Player> GetPlayers()
     {
