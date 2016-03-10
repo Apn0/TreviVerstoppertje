@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class EscListener : MonoBehaviour {
 	GameObject guiCanvas;
@@ -16,10 +17,13 @@ public class EscListener : MonoBehaviour {
 			if(guiCanvas.activeSelf){
 				guiCanvas.SetActive (false);
                 Cursor.visible = false;
+                PlayerSetup.localPlayer.GetComponent<FirstPersonController>().enabled = true;
 			}else{
 				guiCanvas.SetActive(true);
                 Cursor.visible = true;
-			}
-		}
+                PlayerSetup.localPlayer.GetComponent<FirstPersonController>().enabled = false;
+
+            }
+        }
 	}
 }

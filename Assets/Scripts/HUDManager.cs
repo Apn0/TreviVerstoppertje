@@ -33,9 +33,11 @@ public class HUDManager : MonoBehaviour {
         foreach (System.Collections.Generic.KeyValuePair<string, Player> kvp in GameManager.GetPlayers())
         {
             player = kvp.Value;
-
-            Vector3 pos = cam.WorldToViewportPoint(player.transform.position + new Vector3(0, 2.5f, 0));
-            GUI.Label(new Rect(Screen.width*pos.x-75, Screen.height*(1-pos.y), 150, 20), player.GetComponent<Player>().playerName);
+            if (player.transform.gameObject != PlayerSetup.localPlayer)
+            {
+                Vector3 pos = cam.WorldToViewportPoint(player.transform.position + new Vector3(0, 2.5f, 0));
+                GUI.Label(new Rect(Screen.width * pos.x - 75, Screen.height * (1 - pos.y), 150, 20), player.GetComponent<Player>().playerName);
+            }
         }
     }
 }
