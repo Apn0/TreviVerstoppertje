@@ -9,6 +9,8 @@ public class PlayerShoot : NetworkBehaviour {
 
     public GameObject bulletHolePrefab;
 
+    private AudioSource gunSource;
+
     [SerializeField]
     private Camera cam;
 
@@ -24,6 +26,14 @@ public class PlayerShoot : NetworkBehaviour {
         {
             Debug.LogError("PlayerShoot: No camera referenced!");
             this.enabled = false;
+        }
+
+        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (child.name=="CQAssaultRifle")
+            {
+                gunSource = child.GetComponent<AudioSource>();
+            }
         }
     }
 
@@ -42,6 +52,16 @@ public class PlayerShoot : NetworkBehaviour {
     {
         CmdShootFX();
         RaycastHit _hit;
+
+        if (gunSource != null)
+        {
+            gunSource.PlayOneShot(weapon.shootSound);
+        }
+        else
+        {
+            Debug.Log("Gun audio source not found");
+        }
+
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, weapon.range, mask))
         {
             if (_hit.collider.tag == PLAYER_TAG)

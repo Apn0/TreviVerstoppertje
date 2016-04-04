@@ -8,5 +8,6 @@ public class PlayerWeapon {
 	public int damage = 10;
 	public float range = 100f;
     public float guncooldown = 0.5f;
+    public AudioClip shootSound;
 
 }
