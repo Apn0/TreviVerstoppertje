@@ -6,6 +6,7 @@ public class PlayerShoot : NetworkBehaviour {
     private const string PLAYER_TAG = "Player";
 
     public PlayerWeapon weapon;
+    private AudioSource gunSource;
     public GameObject hitEffectPrefab;
 
     ParticleSystem muzzleFlash;
@@ -29,6 +30,14 @@ public class PlayerShoot : NetworkBehaviour {
             this.enabled = false;
         }
         muzzleFlash = GetComponentInChildren<ParticleSystem>();
+
+        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
+        {
+            if (child.name == "CQAssaultRifle")
+            {
+                gunSource = child.GetComponent<AudioSource>();
+            }
+        }
     }
 
     void Update()
@@ -77,6 +86,16 @@ public class PlayerShoot : NetworkBehaviour {
         {
             return;
         }
+
+        if (gunSource != null)
+        {
+            gunSource.PlayOneShot(weapon.shootSound);
+        }
+        else
+        {
+            Debug.Log("Gun audio source not found");
+        }
+
         CmdOnShoot();
         RaycastHit _hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, weapon.range, mask))
