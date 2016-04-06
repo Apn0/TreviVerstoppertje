@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cb1ded7b0fd6e74fbd141488f5c3a59
-timeCreated: 1459802959
+timeCreated: 1459882802
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -170,21 +170,21 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Bricks_Age
       value:
-        scalar[0]: 1
+        scalar[0]: 0.19
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Bricks_Hue
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.03
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Bricks_Saturation
       value:
-        scalar[0]: 0.5
+        scalar[0]: 0.595
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -198,7 +198,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Bricks_Contrast
       value:
-        scalar[0]: 0
+        scalar[0]: 0.17
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -446,7 +446,7 @@ SubstanceImporter:
         data:
           first:
             name: _Parallax
-          second: 0.0327
+          second: 0.0113
         data:
           first:
             name: _ZWrite
@@ -454,7 +454,7 @@ SubstanceImporter:
         data:
           first:
             name: _Glossiness
-          second: 0.1
+          second: 0.15
         data:
           first:
             name: _BumpScale
@@ -487,7 +487,7 @@ SubstanceImporter:
         data:
           first:
             name: _Color
-          second: {r: 1, g: 0.76867646, b: 0.52205884, a: 1}
+          second: {r: 1, g: 1, b: 1, a: 1}
     textureParameters:
     - name: Make_It_A_Brick_Wall_Diffuse
       alphaSource: 5
@@ -535,10 +535,10 @@ SubstanceImporter:
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
-      textureWidth: 2048
-      textureHeight: 2048
+      textureWidth: 512
+      textureHeight: 512
       textureFormat: 0
-      loadingBehavior: 4
+      loadingBehavior: 2
   deletedPrototypes: []
   userData: 
   assetBundleName: 
