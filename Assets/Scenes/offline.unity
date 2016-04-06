@@ -680,6 +680,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1559,7 +1560,7 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 3
-  m_PlayerPrefab: {fileID: 192534, guid: e8257f221b75fe440862c9993e1ab4c8, type: 2}
+  m_PlayerPrefab: {fileID: 140048, guid: 18c3ecc925ac669429f69ee8645e5e4e, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
   m_OfflineScene: offline
@@ -1605,7 +1606,6 @@ MonoBehaviour:
   matchName: default
   matchSize: 4
   playerName: 
-  ipAdress: 
 --- !u!114 &1977136357
 MonoBehaviour:
   m_ObjectHideFlags: 0
