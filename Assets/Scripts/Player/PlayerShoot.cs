@@ -19,7 +19,7 @@ public class PlayerShoot : NetworkBehaviour {
     [SerializeField]
     private LayerMask mask;
 
-    private float t = 0f;
+    private float shotTimer = 0f;
 
 
     void Start()
@@ -30,23 +30,29 @@ public class PlayerShoot : NetworkBehaviour {
             this.enabled = false;
         }
         muzzleFlash = GetComponentInChildren<ParticleSystem>();
+        SetupGunAudioSource();
+    }
 
-        foreach (Transform child in gameObject.GetComponentsInChildren<Transform>())
+    private void SetupGunAudioSource()
+    {
+        Transform rifle = transform.Find("CQAssaultRifle");
+        if (rifle != null)
         {
-            if (child.name == "CQAssaultRifle")
-            {
-                gunSource = child.GetComponent<AudioSource>();
-            }
+            gunSource = rifle.GetComponent<AudioSource>();
+        }
+        else
+        {
+            Debug.LogWarning("CQAssaultRifle object not found; gun audio disabled");
         }
     }
 
     void Update()
     {
-        t += Time.deltaTime;
-        if (Input.GetButton("Fire1") && weapon.guncooldown < t)
+        shotTimer += Time.deltaTime;
+        if (Input.GetButton("Fire1") && weapon.guncooldown < shotTimer)
         {
             Shoot();
-            t = 0;
+            shotTimer = 0;
         }
     }
 
