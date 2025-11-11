@@ -1,1 +1,0 @@
-Linear/Deferred/Lighting defaults applied.
