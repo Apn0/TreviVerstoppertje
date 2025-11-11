@@ -28,7 +28,7 @@ public class CreateSkyboxMaterials : EditorWindow
             Directory.CreateDirectory(destPath);
         }
 
-        string[] imageFiles = Directory.GetFiles(sourcePath, "*.jpg");
+        string[] imageFiles = Directory.GetFiles(sourcePath, "*.jpg", SearchOption.AllDirectories);
 
         foreach (string imageFile in imageFiles)
         {
@@ -48,9 +48,17 @@ public class CreateSkyboxMaterials : EditorWindow
             if (texture != null)
             {
                 string materialName = Path.GetFileNameWithoutExtension(imageFile);
+                string relativePath = Path.GetDirectoryName(imageFile).Replace(sourcePath, "").TrimStart('\\', '/');
+                string targetFolder = Path.Combine(destPath, relativePath);
+
+                if (!Directory.Exists(targetFolder))
+                {
+                    Directory.CreateDirectory(targetFolder);
+                }
+
                 Material skyboxMaterial = new Material(Shader.Find("Skybox/Panoramic"));
                 skyboxMaterial.SetTexture("_MainTex", texture);
-                AssetDatabase.CreateAsset(skyboxMaterial, destPath + "/" + materialName + ".mat");
+                AssetDatabase.CreateAsset(skyboxMaterial, Path.Combine(targetFolder, materialName + ".mat"));
             }
         }
 
