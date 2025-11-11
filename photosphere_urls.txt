@@ -1,0 +1,2 @@
+media/panorama_BA5E9A93_B39F_D28D_41D2_5174D021287A_0/{face}/0/{row}_{column}.jpg
+media/panorama_0C5B3E6A_1A7C_4B3F_8A8F_652B9E2B7A6E_0/{face}/0/{row}_{column}.jpg
