@@ -76,3 +76,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Unity upgrade logs and local archives
+UpgradeLog*.htm
+ProjectSettings.7z
