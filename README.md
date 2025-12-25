@@ -27,3 +27,5 @@ Requirements:
 - Optional: Real-ESRGAN + PyTorch for ML-based upscaling (`pip install realesrgan torch`)
 
 By default, textures are upscaled using bicubic interpolation. Place a `RealESRGAN_x2.pth` weight file next to the script to enable machine-learning based upscaling.
+
+You can obtain `RealESRGAN_x2.pth` from the Real-ESRGAN release assets: https://github.com/xinntao/Real-ESRGAN/releases
