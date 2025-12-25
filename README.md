@@ -13,6 +13,18 @@ This project is a Unity game. A Python script is provided to extract all texture
 
 See [Extract and Upscale Textures](#extract-and-upscale-textures) for the texture tooling.
 
+## Web Assets
+
+The repository includes static web assets (`index.html`, `script.js`, `tour.js`). You can open
+`index.html` directly in a browser for a quick check. If the browser blocks local file access
+(for example due to CORS restrictions), run a local server from the repo root:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit `http://localhost:8000/index.html`.
+
 ## Tools
 
 ### Extract and Upscale Textures
