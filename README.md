@@ -21,4 +21,9 @@ See [Extract and Upscale Textures](#extract-and-upscale-textures) for the textur
 python tools/extract_and_upscale_textures.py --assets Assets --output UpscaledTextures
 ```
 
+Requirements:
+- Python 3.x
+- Pillow (`pip install pillow`)
+- Optional: Real-ESRGAN + PyTorch for ML-based upscaling (`pip install realesrgan torch`)
+
 By default, textures are upscaled using bicubic interpolation. Place a `RealESRGAN_x2.pth` weight file next to the script to enable machine-learning based upscaling.
