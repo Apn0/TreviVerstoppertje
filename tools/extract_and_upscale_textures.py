@@ -15,8 +15,9 @@ SUPPORTED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.tga', '.bmp', '.tif', '.tiff'
 
 
 def find_textures(asset_dir: Path):
-    for ext in SUPPORTED_EXTENSIONS:
-        yield from asset_dir.rglob(f'*{ext}')
+    for path in asset_dir.rglob('*'):
+        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS:
+            yield path
 
 
 def upscale_image(input_path: Path, output_path: Path):
@@ -43,6 +44,8 @@ def main():
     args = parser.parse_args()
 
     assets_dir = Path(args.assets)
+    if not assets_dir.exists():
+        raise SystemExit(f'Assets directory does not exist: {assets_dir}')
     output_dir = Path(args.output)
     output_dir.mkdir(parents=True, exist_ok=True)
 
