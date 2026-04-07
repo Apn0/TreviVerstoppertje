@@ -2,6 +2,13 @@
 
 This project is a Unity game. A Python script is provided to extract all texture files from the `Assets` directory and optionally upscale them. The script relies on Pillow for basic resizing, and attempts to use [Real-ESRGAN](https://github.com/xinntao/Real-ESRGAN) if the package and model weights are available.
 
+## TODO
+
+- [x] Add a pinned requirements file for texture tooling so setup is one command.
+- [ ] Add CLI options for scale factor and interpolation mode in `extract_and_upscale_textures.py`.
+- [ ] Add a dry-run mode that reports how many textures would be processed.
+- [ ] Add an option to skip files that already exist in the output directory.
+
 ## Project Structure / Entry Points
 
 - `Assets/` and `ProjectSettings/` contain the Unity game data and editor settings.  
@@ -35,7 +42,7 @@ python tools/extract_and_upscale_textures.py --assets Assets --output UpscaledTe
 
 Requirements:
 - Python 3.x
-- Pillow (`pip install pillow`)
+- Pillow (`pip install -r tools/requirements-textures.txt`)
 - Optional: Real-ESRGAN + PyTorch for ML-based upscaling (`pip install realesrgan torch`)
 
 By default, textures are upscaled using bicubic interpolation. Place a `RealESRGAN_x2.pth` weight file next to the script to enable machine-learning based upscaling.
