@@ -6,8 +6,8 @@ This project is a Unity game. A Python script is provided to extract all texture
 
 - [x] Add a pinned requirements file for texture tooling so setup is one command.
 - [ ] Add CLI options for scale factor and interpolation mode in `extract_and_upscale_textures.py`.
-- [ ] Add a dry-run mode that reports how many textures would be processed.
-- [ ] Add an option to skip files that already exist in the output directory.
+- [x] Add a dry-run mode that reports how many textures would be processed.
+- [x] Add an option to skip files that already exist in the output directory.
 
 ## Project Structure / Entry Points
 
@@ -38,6 +38,18 @@ Then visit `http://localhost:8000/index.html`.
 
 ```bash
 python tools/extract_and_upscale_textures.py --assets Assets --output UpscaledTextures
+```
+
+To avoid reprocessing files already in the output directory:
+
+```bash
+python tools/extract_and_upscale_textures.py --assets Assets --output UpscaledTextures --skip-existing
+```
+
+To preview work without writing output files:
+
+```bash
+python tools/extract_and_upscale_textures.py --assets Assets --output UpscaledTextures --dry-run
 ```
 
 Requirements:
