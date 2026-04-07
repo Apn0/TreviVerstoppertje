@@ -41,6 +41,11 @@ def main():
     parser.add_argument('--assets', default='Assets', help='Root assets directory')
     parser.add_argument('--output', default='UpscaledTextures', help='Directory to store upscaled textures')
     parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Report what would be processed without writing output files',
+    )
+    parser.add_argument(
         '--skip-existing',
         action='store_true',
         help='Skip output files that already exist in the target directory',
@@ -56,6 +61,7 @@ def main():
     textures = list(find_textures(assets_dir))
     print(f'Found {len(textures)} texture files.')
     skipped = 0
+    processed = 0
 
     for tex in textures:
         rel = tex.relative_to(assets_dir)
@@ -64,12 +70,20 @@ def main():
             skipped += 1
             print(f'Skipped existing {target_path}')
             continue
+        if args.dry_run:
+            print(f'Would process {tex} -> {target_path}')
+            continue
         target_path.parent.mkdir(parents=True, exist_ok=True)
         upscale_image(tex, target_path)
+        processed += 1
         print(f'Processed {tex} -> {target_path}')
 
     if args.skip_existing:
         print(f'Skipped {skipped} existing files.')
+    if args.dry_run:
+        print('Dry run complete. No files were written.')
+    else:
+        print(f'Processed {processed} texture files.')
 
 
 if __name__ == '__main__':
