@@ -39,6 +39,47 @@ class TestFindTextures(unittest.TestCase):
         self.assertIn("test3.tga", found_names)
         self.assertNotIn("test.txt", found_names)
 
+    def test_find_textures_mocked(self):
+        mock_dir = MagicMock(spec=Path)
+
+        def create_mock_path(name, is_file=True):
+            p = MagicMock(spec=Path)
+            p.name = name
+            p.suffix = Path(name).suffix
+            p.is_file.return_value = is_file
+            return p
+
+        mock_files = [
+            create_mock_path("test1.png"),
+            create_mock_path("test2.JPG"),
+            create_mock_path("test3.tga"),
+            create_mock_path("test.txt"),
+            create_mock_path("image.psd"),
+            create_mock_path("subdir", is_file=False)
+        ]
+
+        mock_dir.rglob.return_value = iter(mock_files)
+
+        found = list(script.find_textures(mock_dir))
+        found_names = {p.name for p in found}
+
+        mock_dir.rglob.assert_called_once_with('*')
+        self.assertEqual(len(found), 3)
+        self.assertIn("test1.png", found_names)
+        self.assertIn("test2.JPG", found_names)
+        self.assertIn("test3.tga", found_names)
+        self.assertNotIn("test.txt", found_names)
+        self.assertNotIn("image.psd", found_names)
+        self.assertNotIn("subdir", found_names)
+
+    def test_find_textures_empty(self):
+        mock_dir = MagicMock(spec=Path)
+        mock_dir.rglob.return_value = iter([])
+
+        found = list(script.find_textures(mock_dir))
+        self.assertEqual(len(found), 0)
+        mock_dir.rglob.assert_called_once_with('*')
+
 class TestUpscaleImage(unittest.TestCase):
     @patch('tools.extract_and_upscale_textures.REAL_ESRGAN_AVAILABLE', False)
     def test_upscale_image_bicubic_fallback(self):
