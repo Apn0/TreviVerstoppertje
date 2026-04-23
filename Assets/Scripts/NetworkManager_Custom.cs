@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class NetworkManager_Custom : NetworkManager {
 
     public string playerName;
+    private Button lanHostButton;
+    private Button connectButton;
+    private Button disconnectButton;
+    private Text ipInputFieldText;
+    private Text nameInputFieldText;
+    private Text nameInputFieldPlaceholder;
 
     public void StartupHost() {
         if (!NetworkClient.active && !NetworkServer.active) {
@@ -32,12 +38,37 @@ public class NetworkManager_Custom : NetworkManager {
 
     void SetIPAddress()
     {
-        NetworkManager.singleton.networkAddress = GameObject.Find("IPInputField").transform.Find("Text").GetComponent<Text>().text;
+        if (ipInputFieldText == null)
+        {
+            GameObject ipInputFieldObj = GameObject.Find("IPInputField");
+            if (ipInputFieldObj != null)
+            {
+                ipInputFieldText = ipInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+            }
+        }
+
+        if (ipInputFieldText != null)
+        {
+            NetworkManager.singleton.networkAddress = ipInputFieldText.text;
+        }
     }
 
     void SetName()
     {
-        playerName = GameObject.Find("NameInputField").transform.Find("Text").GetComponent<Text>().text;
+        if (nameInputFieldText == null)
+        {
+            GameObject nameInputFieldObj = GameObject.Find("NameInputField");
+            if (nameInputFieldObj != null)
+            {
+                nameInputFieldText = nameInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+            }
+        }
+
+        if (nameInputFieldText != null)
+        {
+            playerName = nameInputFieldText.text;
+        }
+
         if (playerName == "") {
             playerName = PlayerPrefs.GetString("username");
             Debug.Log(playerName);
@@ -61,22 +92,60 @@ public class NetworkManager_Custom : NetworkManager {
     IEnumerator SetupMenuSceneButtons()
     {
         yield return new WaitForSeconds(0.1f);
-        GameObject.Find("LanHostButton").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("LanHostButton").GetComponent<Button>().onClick.AddListener(StartupHost);
 
-        GameObject.Find("ConnectButton").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("ConnectButton").GetComponent<Button>().onClick.AddListener(JoinGame);
+        GameObject lanHostButtonObj = GameObject.Find("LanHostButton");
+        if (lanHostButtonObj != null)
+        {
+            lanHostButton = lanHostButtonObj.GetComponent<Button>();
+            if (lanHostButton != null)
+            {
+                lanHostButton.onClick.RemoveAllListeners();
+                lanHostButton.onClick.AddListener(StartupHost);
+            }
+        }
+
+        GameObject connectButtonObj = GameObject.Find("ConnectButton");
+        if (connectButtonObj != null)
+        {
+            connectButton = connectButtonObj.GetComponent<Button>();
+            if (connectButton != null)
+            {
+                connectButton.onClick.RemoveAllListeners();
+                connectButton.onClick.AddListener(JoinGame);
+            }
+        }
+
+        GameObject ipInputFieldObj = GameObject.Find("IPInputField");
+        if (ipInputFieldObj != null)
+        {
+            ipInputFieldText = ipInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+        }
+
+        GameObject nameInputFieldObj = GameObject.Find("NameInputField");
+        if (nameInputFieldObj != null)
+        {
+            nameInputFieldText = nameInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+            nameInputFieldPlaceholder = nameInputFieldObj.transform.FindChild("Placeholder").GetComponent<Text>();
+        }
 
         playerName = PlayerPrefs.GetString("username");
-        if (playerName != null)
+        if (playerName != null && nameInputFieldPlaceholder != null)
         {
-            GameObject.Find("NameInputField").transform.Find("Placeholder").GetComponent<Text>().text = playerName;
+            nameInputFieldPlaceholder.text = playerName;
         }
     }
 
     void SetupOtherSceneButtons()
     {
-        GameObject.Find("DisconnectButton").GetComponent<Button>().onClick.RemoveAllListeners();
-        GameObject.Find("DisconnectButton").GetComponent<Button>().onClick.AddListener(NetworkManager.singleton.StopHost);
+        GameObject disconnectButtonObj = GameObject.Find("DisconnectButton");
+        if (disconnectButtonObj != null)
+        {
+            disconnectButton = disconnectButtonObj.GetComponent<Button>();
+            if (disconnectButton != null)
+            {
+                disconnectButton.onClick.RemoveAllListeners();
+                disconnectButton.onClick.AddListener(NetworkManager.singleton.StopHost);
+            }
+        }
     }
 }
