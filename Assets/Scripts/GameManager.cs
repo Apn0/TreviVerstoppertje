@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public MatchSettings matchSettings;
 
-    public static GameObject localplayer;
+    public static GameObject localplayer; // Reference to the local player object
 
     private List<Player> playerList;
 
