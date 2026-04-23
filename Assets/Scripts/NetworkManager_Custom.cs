@@ -137,15 +137,19 @@ public class NetworkManager_Custom : NetworkManager {
 
     void SetupOtherSceneButtons()
     {
-        GameObject disconnectButtonObj = GameObject.Find("DisconnectButton");
-        if (disconnectButtonObj != null)
+        if (disconnectButton == null)
         {
-            disconnectButton = disconnectButtonObj.GetComponent<Button>();
-            if (disconnectButton != null)
+            GameObject disconnectButtonObj = GameObject.Find("DisconnectButton");
+            if (disconnectButtonObj != null)
             {
-                disconnectButton.onClick.RemoveAllListeners();
-                disconnectButton.onClick.AddListener(NetworkManager.singleton.StopHost);
+                disconnectButton = disconnectButtonObj.GetComponent<Button>();
             }
+        }
+
+        if (disconnectButton != null)
+        {
+            disconnectButton.onClick.RemoveAllListeners();
+            disconnectButton.onClick.AddListener(NetworkManager.singleton.StopHost);
         }
     }
 }
