@@ -92,7 +92,6 @@ public class PlayerSetup : NetworkBehaviour {
 	{
 		for (int i = 0; i < componentsToDisable.Length; i++)
 		{
-            //Debug.Log(componentsToDisable[i]);
             componentsToDisable[i].enabled = false;
 		}
 	}
