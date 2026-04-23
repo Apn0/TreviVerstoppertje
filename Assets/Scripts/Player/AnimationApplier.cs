@@ -34,8 +34,6 @@ public class AnimationApplier : NetworkBehaviour
 
         spine = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine");
         neck = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck");
-       // leftArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/LeftShoulder");
-       // rightArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/RightShoulder");
 
         leftArm = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm");
         rightArm = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm");
