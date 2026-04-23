@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NetworkManager_Custom : NetworkManager {
 
@@ -77,9 +78,19 @@ public class NetworkManager_Custom : NetworkManager {
         PlayerPrefs.SetString("username", playerName);
     }
 
-    void OnLevelWasLoaded(int level)
+    void OnEnable()
     {
-        if(level == 0 )
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.buildIndex == 0)
         {
             StartCoroutine(SetupMenuSceneButtons());            
         }
