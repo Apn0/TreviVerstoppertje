@@ -134,10 +134,4 @@ public class PlayerShoot : NetworkBehaviour {
         _player.RpcTakeDamage(_damage, GetComponent<Player>().playerName);
     }
 
-    [Command]
-    void CmdShootFX()
-    {
-
-    }
-
 }
