@@ -23,31 +23,49 @@ namespace UnityStandardAssets.Utility
 			int materialsReplaced = 0;
 			int materialInstancesReplaced = 0;
 
-			foreach(ReplacementDefinition replacementDef in m_ReplacementList.items)
+			if (m_ReplacementList.items.Length > 0)
 			{
+				var replacementDict = new Dictionary<Shader, Shader>();
+				foreach (var replacementDef in m_ReplacementList.items)
+				{
+					if (replacementDef.original != null && !replacementDict.ContainsKey(replacementDef.original))
+					{
+						replacementDict.Add(replacementDef.original, replacementDef.replacement);
+					}
+				}
+
+				var materialMapping = new Dictionary<Material, Material>();
+
 				foreach(var r in renderers)
 				{
+					Material[] sharedMaterials = r.sharedMaterials;
 					Material[] modifiedMaterials = null;
-					for(int n=0; n<r.sharedMaterials.Length; ++n)
+					for(int n=0; n<sharedMaterials.Length; ++n)
 					{
-						var material = r.sharedMaterials[n];
-						if (material.shader == replacementDef.original)
+						var material = sharedMaterials[n];
+						if (material != null && material.shader != null)
 						{
-							if (modifiedMaterials == null)
+							Shader replacementShader;
+							if (replacementDict.TryGetValue(material.shader, out replacementShader))
 							{
-								modifiedMaterials = r.materials;
+								if (modifiedMaterials == null)
+								{
+									modifiedMaterials = r.materials;
+								}
+								Material newMaterial;
+								if (!materialMapping.TryGetValue(material, out newMaterial))
+								{
+									oldMaterials.Add(material);
+									newMaterial = (Material)Instantiate(material);
+									newMaterial.shader = replacementShader;
+									newMaterials.Add(newMaterial);
+									materialMapping.Add(material, newMaterial);
+									++materialsReplaced;
+								}
+								Debug.Log ("replacing "+r.gameObject.name+" renderer "+n+" with "+newMaterial.name);
+								modifiedMaterials[n] = newMaterial;
+								++materialInstancesReplaced;
 							}
-							if (!oldMaterials.Contains(material))
-							{
-								oldMaterials.Add(material);
-								Material newMaterial = (Material)Instantiate(material);
-								newMaterial.shader = replacementDef.replacement;
-								newMaterials.Add(newMaterial);
-								++materialsReplaced;
-							}
-							Debug.Log ("replacing "+r.gameObject.name+" renderer "+n+" with "+newMaterials[oldMaterials.IndexOf(material)].name);
-							modifiedMaterials[n] = newMaterials[oldMaterials.IndexOf(material)];
-							++materialInstancesReplaced;
 						}
 					}
 					if (modifiedMaterials != null)
