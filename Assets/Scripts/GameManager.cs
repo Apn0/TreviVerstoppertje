@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour {
     {
         return players;
     }
-
 	#endregion
 
 }
