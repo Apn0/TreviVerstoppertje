@@ -43,7 +43,7 @@ public class NetworkManager_Custom : NetworkManager {
             GameObject ipInputFieldObj = GameObject.Find("IPInputField");
             if (ipInputFieldObj != null)
             {
-                ipInputFieldText = ipInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+                ipInputFieldText = ipInputFieldObj.transform.Find("Text").GetComponent<Text>();
             }
         }
 
@@ -60,7 +60,7 @@ public class NetworkManager_Custom : NetworkManager {
             GameObject nameInputFieldObj = GameObject.Find("NameInputField");
             if (nameInputFieldObj != null)
             {
-                nameInputFieldText = nameInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+                nameInputFieldText = nameInputFieldObj.transform.Find("Text").GetComponent<Text>();
             }
         }
 
@@ -118,14 +118,14 @@ public class NetworkManager_Custom : NetworkManager {
         GameObject ipInputFieldObj = GameObject.Find("IPInputField");
         if (ipInputFieldObj != null)
         {
-            ipInputFieldText = ipInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
+            ipInputFieldText = ipInputFieldObj.transform.Find("Text").GetComponent<Text>();
         }
 
         GameObject nameInputFieldObj = GameObject.Find("NameInputField");
         if (nameInputFieldObj != null)
         {
-            nameInputFieldText = nameInputFieldObj.transform.FindChild("Text").GetComponent<Text>();
-            nameInputFieldPlaceholder = nameInputFieldObj.transform.FindChild("Placeholder").GetComponent<Text>();
+            nameInputFieldText = nameInputFieldObj.transform.Find("Text").GetComponent<Text>();
+            nameInputFieldPlaceholder = nameInputFieldObj.transform.Find("Placeholder").GetComponent<Text>();
         }
 
         playerName = PlayerPrefs.GetString("username");
