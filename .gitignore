@@ -80,3 +80,8 @@ sysinfo.txt
 # Unity upgrade logs and local archives
 UpgradeLog*.htm
 ProjectSettings.7z
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
