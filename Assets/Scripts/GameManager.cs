@@ -11,11 +11,6 @@ public class GameManager : MonoBehaviour {
 
     private List<Player> playerList;
 
-    void Start()
-    {
-        
-    }
-
 	void Awake ()
 	{
 		if (instance != null)
