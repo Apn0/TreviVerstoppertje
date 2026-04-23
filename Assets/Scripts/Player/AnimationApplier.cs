@@ -34,8 +34,6 @@ public class AnimationApplier : NetworkBehaviour
 
         spine = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine");
         neck = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:Neck");
-       // leftArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/LeftShoulder");
-       // rightArm = transform.Find("Graphics/Hips/Spine/Spine1/Spine2/RightShoulder");
 
         leftArm = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:LeftShoulder/mixamorig:LeftArm");
         rightArm = transform.Find("Graphics/mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2/mixamorig:RightShoulder/mixamorig:RightArm");
@@ -79,7 +77,6 @@ public class AnimationApplier : NetworkBehaviour
         spine.localEulerAngles += new Vector3(myXpos * .25f, 0, 0);
         neck.localEulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
 
-       // leftArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
         rightArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
 
         //1. verander waarde heupen. 
