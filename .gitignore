@@ -85,3 +85,5 @@ ProjectSettings.7z
 __pycache__/
 *.py[cod]
 *$py.class
+Tests/bin/
+Tests/obj/
