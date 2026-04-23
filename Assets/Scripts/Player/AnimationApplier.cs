@@ -82,15 +82,6 @@ public class AnimationApplier : NetworkBehaviour
        // leftArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
         rightArm.eulerAngles += new Vector3(myXpos * 0.75f, 0, 0);
 
-        //1. verander waarde heupen. 
-        //Crouch 17 graden.
-
-
-        //2. verander waarde hoofd.
-
-        //3. verander waarde armen.
-
-
     }
     void checkGrounded()
     {
