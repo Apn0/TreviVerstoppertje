@@ -32,12 +32,12 @@ public class NetworkManager_Custom : NetworkManager {
 
     void SetIPAddress()
     {
-        NetworkManager.singleton.networkAddress = GameObject.Find("IPInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        NetworkManager.singleton.networkAddress = GameObject.Find("IPInputField").transform.Find("Text").GetComponent<Text>().text;
     }
 
     void SetName()
     {
-        playerName = GameObject.Find("NameInputField").transform.FindChild("Text").GetComponent<Text>().text;
+        playerName = GameObject.Find("NameInputField").transform.Find("Text").GetComponent<Text>().text;
         if (playerName == "") {
             playerName = PlayerPrefs.GetString("username");
             Debug.Log(playerName);
@@ -70,7 +70,7 @@ public class NetworkManager_Custom : NetworkManager {
         playerName = PlayerPrefs.GetString("username");
         if (playerName != null)
         {
-            GameObject.Find("NameInputField").transform.FindChild("Placeholder").GetComponent<Text>().text = playerName;
+            GameObject.Find("NameInputField").transform.Find("Placeholder").GetComponent<Text>().text = playerName;
         }
     }
 
